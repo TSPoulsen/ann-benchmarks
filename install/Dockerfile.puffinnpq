@@ -1,0 +1,6 @@
+FROM ann-benchmarks
+
+RUN pip3 install pypandoc
+RUN git clone -b tdev https://github.com/TSPoulsen/puffinn.git
+RUN cd puffinn && python3 setup.py install
+RUN python3 -c 'import puffinn'
