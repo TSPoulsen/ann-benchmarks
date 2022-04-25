@@ -31,11 +31,11 @@ class PuffinnPQ(BaseANN):
             self.index = puffinn.Index(self.metric, dimensions, self.space,\
                     hash_function=self.hash_function, hash_source=self.hash_source,\
                     hash_args=self.hash_args,
-                    use_pq=self.use_pq, M=self.use_pq, K=self.use_pq, loss=self.loss)
+                    use_pq=self.use_pq, M=self.M, K=self.K, loss=self.loss)
         else:
             self.index = puffinn.Index(self.metric, dimensions, self.space,\
                     hash_function=self.hash_function, hash_source=self.hash_source,
-                    use_pq=self.use_pq, M=self.use_pq, K=self.use_pq, loss=self.loss)
+                    use_pq=self.use_pq, M=self.M, K=self.K, loss=self.loss)
         for i, x in enumerate(X):
             x = x.tolist()
             self.index.insert(x)
