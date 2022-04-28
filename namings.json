@@ -1,0 +1,33 @@
+{
+    "default_params" : {"K":256, "M":8, "loss": "euclidean", "use_pq": 1},
+    "dynamic16euc" : {
+        "plot_name" : "PQDynamic",
+        "params" : {
+            "M": 16
+        },
+        "description" : "original dynamic update of threshhold. start at bootstrap value which was average 20'th nearest neighbour for true inner product values"
+    },
+    "eucM8_dyn" : {
+        "plot_name" : "PQEDyn",
+        "description" : "Dynamically updating threshold according to k'th true similarity (between 0-1) converted into inner product by (s_k*1.85)-1"
+    },
+    "eucM8_no_shift" : {
+        "plot_name" : "PQE_NS",
+        "description" : "Static threshold done through bootstrap, by looking at the average lowest estimation between true top 20"
+    },
+    "mahaM8_no_shift" : {
+        "plot_name" : "PQM_NS",
+        "params" : { "loss" : "mahalanobis"},
+        "description" : "Static threshold done through bootstrap, by looking at the average lowest estimation between true top 20"
+    },
+    "simple" : {
+        "plot_name" : "LSHFilter",
+        "params" : { "use_pq" : 0 },
+        "description" : "Simple implementation using the LSH Filtering method"
+    },
+    "eucM8_shift" : {
+        "plot_name" : "PQE_S",
+        "description" : "Same as PQE_NS for threshold though all estimations get subtracted -0.05 to avoid overflowing"
+    }
+
+}
